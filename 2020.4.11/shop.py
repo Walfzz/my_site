@@ -55,23 +55,12 @@ def edit(id):
 
 
 @app.route('/cart/edit', methods = ['GET', 'POST'])
-def editCart(id):
-    prod = products[id]
-    errors ={}
+def editCart():
     if request.method == 'POST':
-        name = request.form['name']
-        price = request.form['price']
-        if not name:
-            errors['name'] = 'Need name'
-        if not price:
-            errors['price'] = 'Need price'
-        
-        
-        if len(errors) == 0:
-            prod['name'] = name
-            prod['price'] = int(price)
-            prod['src'] = request.form['image']
-            prod['desc'] = request.form['desc']
-            return redirect('/product/' + id)
+        pen = int(request.form['pen'])
+        notebook = int(request.form['notebook'])
+        cart[0]['num'] = pen
+        cart[1]['num'] = notebook    
+        return redirect('/')
 
-    return render_template('product-edit.html', product=prod, errors=errors)
+    return render_template('cart-edit.html', cart = cart)
