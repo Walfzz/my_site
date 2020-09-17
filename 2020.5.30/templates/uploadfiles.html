@@ -1,0 +1,27 @@
+{% extends './base.html' %}
+
+{% block main_wrapper %}
+<div class = "container">
+    <h1>Upload</h1>
+    <form action="/uploadfiles" method="post" enctype="multipart/form-data">
+        <div>
+          <label for="name">Name:</label>
+          <input id="name" type="text" name="name" value="">
+        </div>
+        <div>
+          <label for="price">Price:</label>
+          <input id="price" type="text" name="price" value="">
+        </div>
+        <div>
+          <label for="desc">Desc:</label>
+          <input id="desc" type="text" name="desc" value="">
+        </div>
+        <div>
+          <label for="picture">Picture:</label>
+          <input id="picture" type="file" name="picture">
+        </div>
+        <p><button type="submit">Submit</button></p>
+    </form>
+</div>
+
+{% endblock %}

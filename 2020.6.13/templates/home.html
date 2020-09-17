@@ -1,0 +1,72 @@
+{% extends './base.html' %}
+
+{% block main_wrapper %}
+<div class="container">
+    <h1>Javascript</h1>
+    
+    <h1>Counter: <span id="counter">null</span></h1>
+    <h1>Double: <span id="double">null</span></h1>
+    <button onclick="incr();">Increment</button>
+    <button onclick="reset();">Reset</button>
+    <button onclick="bgRed();">Red</button>
+    <hr>
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>Mark</td>
+            <td>Otto</td>
+            <td>@mdo</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>Jacob</td>
+            <td>Thornton</td>
+            <td>@fat</td>
+          </tr>
+          <tr>
+            <th scope="row">3</th>
+            <td>Larry</td>
+            <td>the Bird</td>
+            <td>@twitter</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
+<script>
+    var cnt = 0;
+        var colors = ['red', 'green', 'blue', 'white'];
+        var colors2 = ['red', 'white'];
+        var shapes = ['O', 'X']
+        var cnt3 = 0
+        var cnt2 = 0;
+        function incr() {
+            cnt++;
+            $('#counter').html(cnt).css('color', colors[cnt%3]);
+            $('#double').html(cnt * 2);
+        }
+        function reset(){
+            cnt = 0;
+            $('#counter').html(cnt).css('color', colors[cnt%3]);
+            $('#double').html(cnt);
+        }
+        function bgRed() {
+            cnt2++;
+            $('h1').css('background-color', colors2[cnt2 % 2]);
+        }
+
+    $('td').click(sizeChange);
+    function sizeChange() {
+        cnt3++;
+        $(this).css('font-size', 24). html(shapes[cnt3 % 2]);
+    }        
+</script>
+{% endblock %}

@@ -1,0 +1,10 @@
+{% extends './base.html' %}
+
+{% block main_wrapper %}
+<div class = "container">
+    <h1>Detail</h1>
+    <h3>Name: {{item.name}}</h3>
+    <h3>Price: {{item.price}}</h3>
+    <h3>Desc: {{item.desc}}</h3>
+    <img src="/static/upload/{{item.filename}}"style = "width:300px"
+{% endblock %}
